@@ -1,11 +1,20 @@
 const { User } = require("../models");
+const { signToken, AuthenticationError } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    users: async () => {
+      return User.find();
+    },
     // get a single user by either their id or their username
     getSingleUser: async (parent, { _id }) => {
-      const params = _id ? { _id } : {};
-      return User.find(params);
+      return User.findById(_id);
+    },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("books");
+      }
+      throw AuthenticationError;
     },
   },
   Mutation: {
@@ -13,6 +22,7 @@ const resolvers = {
     createUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
+      console.log(user);
       return { token, user };
     },
     // login a user, sign a token, and send it back (to client/src/components/LoginForm.js)
@@ -40,23 +50,23 @@ const resolvers = {
     },
     // save a book to a user's `savedBooks` field by adding it to the set (to prevent duplicates)
     // user comes from `req.user` created in the auth middleware function
-    saveBook: async (parent, { user, bookToSave }) => {
-      const updatedUser = await User.findOneAndUpdate(
-        { _id: user._id },
-        { $addToSet: { savedBooks: bookToSave } },
-        { new: true, runValidators: true }
-      );
-      return updatedUser;
-    },
+    // saveBook: async (parent, { user, bookToSave }) => {
+    //   const updatedUser = await User.findOneAndUpdate(
+    //     { _id: user._id },
+    //     { $addToSet: { savedBooks: bookToSave } },
+    //     { new: true, runValidators: true }
+    //   );
+    //   return updatedUser;
+    // },
     // remove a book from `savedBooks`
-    deleteBook: async (parent, { user, args }) => {
-      const updatedUser = await User.findOneAndUpdate(
-        { _id: user._id },
-        { $pull: { savedBooks: { bookId: args.bookId } } },
-        { new: true }
-      );
-      return updatedUser;
-    },
+    // deleteBook: async (parent, { user, args }) => {
+    //   const updatedUser = await User.findOneAndUpdate(
+    //     { _id: user._id },
+    //     { $pull: { savedBooks: { bookId: args.bookId } } },
+    //     { new: true }
+    //   );
+    //   return updatedUser;
+    // },
   },
 };
 
