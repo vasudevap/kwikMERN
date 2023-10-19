@@ -31,10 +31,12 @@ Steps:
 ```
 GraphQL will be available at http://localhost:3001/graphql
 The applicaiton will be accessible from http://localhost:3001/
-
+```
 
 # USAGE
+
 To use the application kwikMERN:
+
 - Navigate to URL `http://localhost:3000/`
 - Use the Search bar to search Google Books and retrieve results based on the search keywords
 - Use the Login/Signup link on the top right corner to create an account or to log into a registered account
@@ -42,18 +44,18 @@ To use the application kwikMERN:
 - You can 'See your books" by clicking the link on the top right and accessing your saved books page
 - When in your saved books page, you can delete a book from the list if you wish to remove it.
 
-
 # CONTRIBUTING
-Looking for contributors to automate this site into toggling from RESTful API to MERN with GraphQL.  Until then, I shall toil away by my lonesome!
 
+Looking for contributors to automate this site into toggling from RESTful API to MERN with GraphQL. Until then, I shall toil away by my lonesome!
 
 # TESTS
+
 Testing may be provided as Jest files - please feel free to contact me for more!
 
-
 # LICENSE
+
 [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0)
- General Public License is a free, copyleft license for software and other kinds of works.
+General Public License is a free, copyleft license for software and other kinds of works.
 
 The licenses for most software and other practical works are designed to take away your freedom to share and change the works. By contrast, the GNU General Public License is intended to guarantee your freedom to share and change all versions of a program--to make sure it remains free software for all its users. We, the Free Software Foundation, use the GNU General Public License for most of our software; it applies also to any other work released this way by its authors. You can apply it to your programs, too.
 
@@ -71,9 +73,10 @@ Some devices are designed to deny users access to install or run modified versio
 
 Finally, every program is threatened constantly by software patents. States should not allow patents to restrict development and use of software on general-purpose computers, but in those that do, we wish to avoid the special danger that patents applied to a free program could make it effectively proprietary. To prevent this, the GPL assures that patents cannot be used to render the program non-free.
 
-
 # QUESTIONS
-Please reach me at [vasudevap](https://github.com/vasudevap) or at my email at prashant.vasudeva@gmail.com
----
 
+## Please reach me at [vasudevap](https://github.com/vasudevap) or at my email at prashant.vasudeva@gmail.com
+
+```
+COPYLEFT Prashant Vasudeva - please use and distribute at will!
 ```
