@@ -2,11 +2,11 @@ const typeDefs = `
   type Book {
     _id: ID
     authors: [String]
-    description: String
+    description: String!
     bookId: String!
     image: String
     link: String
-    title: String
+    title: String!
   }
 
   type User {
@@ -25,7 +25,7 @@ const typeDefs = `
   type Query {
     users: [User]
     getSingleUser(_id:ID!): User
-    me: User
+    me(token:ID!): User
   }
 
   type Mutation {
@@ -33,8 +33,20 @@ const typeDefs = `
     createUser(username: String!, email: String!, password: String!): Auth
     
     login(email: String!, password: String!): Auth
-
+    
   }
 `;
 
 module.exports = typeDefs;
+
+// saveBook(
+//   userId:ID!
+//   authors: [String]
+//   description: String!
+//   bookId: String!
+//   image: String
+//   link: String
+//   title: String!
+// ):[User]
+
+// removeBook(_id:ID!, bookId:ID!):[User]
